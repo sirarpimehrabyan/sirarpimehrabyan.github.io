@@ -18,9 +18,9 @@
 /* ---------- Գույներ (նկարից վերցված) ---------- */
 :root{
   --teal-deep: #057876;
-  --cream:      #9AA898;
-  --aqua:    #F0E6D2;
-  --yellow:     #DFFF00;
+  --aqua:      #F0E6D2;
+  --yellow:    #DFFF00;
+  --cream:     #E8F000;
   --turquoise: #32BFB9;
 
   --ink: #057876;              /* տեքստի մուգ գույն */
@@ -45,7 +45,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
 
 
-  
+
 /* ---------- Վերին մենյու ---------- */
 header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
        backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -90,9 +90,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
 
 /* Յուրաքանչյուր շերտի գույնը */
 .bar-1{background:var(--teal-deep); color:var(--cream)}
-.bar-2{background:var(--cream);      color:var(--ink)}
-.bar-3{background:var(--aqua);    color:var(--ink)}
-.bar-4{background:var(--yellow);     color:var(--ink)}
+.bar-2{background:var(--aqua);      color:var(--ink)}
+.bar-3{background:var(--yellow);    color:var(--ink)}
+.bar-4{background:var(--cream);     color:var(--ink)}
 .bar-5{background:var(--turquoise); color:#fff}
 
 @media(prefers-reduced-motion:reduce){.bar,.bar .arrow{transition:none}
@@ -139,11 +139,11 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px}
 @media(max-width:800px){.contact-grid{grid-template-columns:1fr;gap:38px}}
 
-  
-.about-grid{display:block;max-width:111ch}
+
+.about-grid{display:block;max-width:120ch}
 
 
-  
+
 label{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
       font-weight:700;margin:0 0 7px;color:var(--yellow)}
 input,textarea{width:100%;font-family:var(--body);font-size:16px;color:#fff;
@@ -346,11 +346,11 @@ footer{padding:32px 0;font-size:14px;color:rgba(4,65,63,.55);text-align:center}
 <!-- ============ ԽՄԲԱԳՐԻՐ (6) — Bio ============ -->
 <section class="about" id="about">
   <div class="wrap about-grid">
- 
+
     <div>
       <p class="eyebrow">Bio</p>
       <h2>Sirarpi Mehrabyan</h2>
-      
+
       <p>Hello and thank you for stopping by!
 
 My name is Sirarpi Mehrabyan.
