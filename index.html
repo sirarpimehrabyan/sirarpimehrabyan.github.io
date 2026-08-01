@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============ ԽՄԲԱԳՐԻՐ (1) — Կայքի անունը ============ -->
+<title>Sirarpi Mehrabyan · Crochet Patterns</title>
+<meta name="description" content="Հեղինակային կրոշեի սխեմաներ — Սիրարփի Մեհրաբյան, Երևան.">
+<meta property="og:title" content="Sirarpi Mehrabyan · Crochet Patterns">
+<meta property="og:description" content="Հեղինակային կրոշեի սխեմաներ">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Գույներ (նկարից վերցված) ---------- */
+:root{
+  --teal-deep: #057876;
+  --aqua:      #75D7D0;
+  --yellow:    #F8D92E;
+  --cream:     #FCEDB4;
+  --turquoise: #32BFB9;
+
+  --ink:   #04413F;              /* տեքստի մուգ գույն */
+  --paper: #FFFFFF;
+  --line:  rgba(5,120,118,.16);
+
+  --display:"Fraunces", Georgia, serif;
+  --body:"Karla", system-ui, sans-serif;
+  --wrap:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+     font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+         font-weight:700;color:var(--teal-deep);margin:0 0 14px}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* ---------- Վերին մենյու ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
+       backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-size:19px;font-weight:600;text-decoration:none}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav a.link{text-decoration:none;font-size:15px;border-bottom:1.5px solid transparent}
+.nav a.link:hover{border-bottom-color:var(--yellow)}
+@media(max-width:600px){.nav ul{gap:14px}.nav a.link{font-size:14px}}
+
+/* ================= ԳԼԽԱՎՈՐ ԷՋ ================= */
+.hero{padding:40px 0 64px}
+.hero-intro{max-width:52ch;margin:0 0 30px}
+.hero-intro h1{font-family:var(--display);font-weight:400;
+  font-size:clamp(34px,5.2vw,54px);line-height:1.06;letter-spacing:-.02em;margin:0 0 14px}
+.hero-intro h1 em{font-style:italic;color:var(--teal-deep)}
+.hero-intro p{margin:0;color:rgba(4,65,63,.72)}
+
+/* Ձախ՝ լուսանկար, աջ՝ գունային կոճակներ */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr}}
+
+.hero-photo{border-radius:10px;overflow:hidden;background:var(--aqua);
+  min-height:460px;display:flex;align-items:center;justify-content:center;
+  color:var(--teal-deep);font-size:14px;text-align:center;padding:20px}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+
+/* Գունային շերտ-կոճակները */
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{
+  flex:1;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;min-height:82px;padding:18px 26px;
+  border:none;border-radius:10px;cursor:pointer;text-align:left;
+  font-family:var(--body);font-size:20px;font-weight:700;letter-spacing:-.01em;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.bar:hover{transform:translateX(6px);box-shadow:0 8px 22px rgba(4,65,63,.16)}
+.bar .count{font-size:13px;font-weight:500;letter-spacing:.06em;opacity:.75}
+.bar .arrow{font-size:22px;transition:transform .18s ease}
+.bar:hover .arrow{transform:translateX(4px)}
+.bar[aria-expanded="true"]{box-shadow:inset 0 0 0 3px var(--ink)}
+
+/* Յուրաքանչյուր շերտի գույնը */
+.bar-1{background:var(--teal-deep); color:var(--cream)}
+.bar-2{background:var(--aqua);      color:var(--ink)}
+.bar-3{background:var(--yellow);    color:var(--ink)}
+.bar-4{background:var(--cream);     color:var(--ink)}
+.bar-5{background:var(--turquoise); color:#fff}
+
+@media(prefers-reduced-motion:reduce){.bar,.bar .arrow{transition:none}
+  .bar:hover{transform:none}}
+
+/* ================= ԲԱԺԻՆՆԵՐ ================= */
+.collection{display:none;padding:64px 0;border-top:1px solid var(--line)}
+.collection.open{display:block}
+.collection h2{font-family:var(--display);font-weight:400;
+  font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;margin:0 0 10px}
+.collection .lede{max-width:56ch;color:rgba(4,65,63,.72);margin:0 0 40px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;
+      overflow:hidden;transition:transform .18s ease}
+.card:hover{transform:translateY(-4px)}
+.card .photo{aspect-ratio:4/5;background:var(--cream);display:flex;
+  align-items:center;justify-content:center;color:rgba(4,65,63,.45);font-size:13px}
+.card .photo img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:20px}
+.card h3{font-family:var(--display);font-weight:600;font-size:21px;margin:0 0 6px}
+.card p{margin:0 0 14px;font-size:15px;color:rgba(4,65,63,.7)}
+.specs{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.specs li{font-size:12px;padding:4px 10px;border-radius:999px;
+  background:var(--aqua);color:var(--ink);font-weight:500}
+
+/* ================= ԻՄ ՄԱՍԻՆ ================= */
+.about{background:var(--cream);padding:80px 0}
+.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;align-items:center}
+.portrait{aspect-ratio:1;background:var(--aqua);border-radius:10px;display:flex;
+  align-items:center;justify-content:center;color:var(--teal-deep);font-size:13px}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.about h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,38px);margin:0 0 14px}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ================= ԿԱՊ ================= */
+.contact{background:var(--teal-deep);color:#fff;padding:80px 0}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,38px);margin:0 0 10px}
+.contact .eyebrow{color:var(--yellow)}
+.contact .lede{color:rgba(255,255,255,.8);max-width:50ch;margin:0 0 34px}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px}
+@media(max-width:800px){.contact-grid{grid-template-columns:1fr;gap:38px}}
+
+label{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+      font-weight:700;margin:0 0 7px;color:var(--aqua)}
+input,textarea{width:100%;font-family:var(--body);font-size:16px;color:#fff;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;padding:12px 14px;margin-bottom:20px}
+textarea{min-height:130px;resize:vertical}
+button[type=submit]{font-family:var(--body);font-weight:700;font-size:15px;cursor:pointer;
+  padding:14px 32px;border:none;border-radius:999px;background:var(--yellow);color:var(--ink)}
+button[type=submit]:hover{background:var(--cream)}
+
+.socials{list-style:none;margin:0;padding:0}
+.socials li{border-bottom:1px solid rgba(255,255,255,.2)}
+.socials a{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 0;text-decoration:none;font-size:17px}
+.socials a span:last-child{color:var(--aqua);font-size:14px}
+.socials a:hover span:first-child{color:var(--yellow)}
+
+footer{padding:32px 0;font-size:14px;color:rgba(4,65,63,.55);text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a class="brand" href="#">Sirarpi Mehrabyan</a>
+    <ul>
+      <li><a class="link" href="#top">Սխեմաներ</a></li>
+      <li><a class="link" href="#about">Իմ մասին</a></li>
+      <li><a class="link" href="#contact">Կապ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero wrap" id="top">
+  <div class="hero-intro">
+    <!-- ============ ԽՄԲԱԳՐԻՐ (2) — Գլխավոր վերնագիր ============ -->
+    <h1>Հեղինակային կրոշեի <em>սխեմաներ</em></h1>
+    <p>Ընտրիր բաժինը՝ տեսնելու այդ թեմայի աշխատանքները։</p>
+  </div>
+
+  <div class="hero-grid">
+
+    <!-- ============ ԽՄԲԱԳՐԻՐ (3) — Գլխավոր լուսանկարը ============
+         Դիր քո նկարը images/glxavor.jpg անունով, հետո ջնջիր ներքևի
+         տեքստը և բացիր <img> տողի մեկնաբանությունը -->
+    <div class="hero-photo">
+      <!-- <img src="images/glxavor.jpg" alt="Կրոշեի աշխատանքներ"> -->
+      Գլխավոր լուսանկարի տեղը<br>(images/glxavor.jpg)
+    </div>
+
+    <!-- ============ ԽՄԲԱԳՐԻՐ (4) — Բաժինների անունները ============
+         Փոխիր միայն անունները և քանակները։
+         data-target-ը պիտի համընկնի ներքևի բաժնի id-ի հետ։ -->
+    <div class="bars">
+      <button class="bar bar-1" data-target="bazin-1" aria-expanded="false">
+        <span>Ամառային մոդելներ<br><span class="count">8 սխեմա</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="bar bar-2" data-target="bazin-2" aria-expanded="false">
+        <span>Գլխարկներ<br><span class="count">5 սխեմա</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="bar bar-3" data-target="bazin-3" aria-expanded="false">
+        <span>Վերմակներ<br><span class="count">6 սխեմա</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="bar bar-4" data-target="bazin-4" aria-expanded="false">
+        <span>Խաղալիքներ<br><span class="count">4 սխեմա</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button class="bar bar-5" data-target="bazin-5" aria-expanded="false">
+        <span>Աքսեսուարներ<br><span class="count">7 սխեմա</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ ԽՄԲԱԳՐԻՐ (5) — Բաժինների պարունակությունը ============
+     Ամեն բաժնի ներսում պատճենիր <article class="card">…</article> բլոկը
+     ամեն նոր սխեմայի համար։ -->
+
+<section class="collection" id="bazin-1">
+  <div class="wrap">
+    <p class="eyebrow">Բաժին</p>
+    <h2>Ամառային մոդելներ</h2>
+    <p class="lede">Թեթև բամբակյա հյուսվածքներ՝ շոգ եղանակի համար։</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="photo">
+          <!-- <img src="images/sxema-1.jpg" alt="Ամառային վերնաշապիկ"> -->
+          Նկարի տեղը
+        </div>
+        <div class="body">
+          <h3>Ամառային վերնաշապիկ</h3>
+          <p>Բաց ցանցային նախշ՝ լայն ուսագծերով։</p>
+          <ul class="specs"><li>Բամբակ · DK</li><li>Կեռ 3.5 մմ</li><li>Միջին</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Լողափի պայուսակ</h3>
+          <p>Ամուր հյուսվածք՝ երկար կանթերով։</p>
+          <ul class="specs"><li>Ջուտ</li><li>Կեռ 5 մմ</li><li>Սկսնակ</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Արևի գլխարկ</h3>
+          <p>Լայն եզրերով, ժապավենով։</p>
+          <ul class="specs"><li>Ռաֆիա</li><li>Կեռ 4 մմ</li><li>Միջին</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="bazin-2">
+  <div class="wrap">
+    <p class="eyebrow">Բաժին</p>
+    <h2>Գլխարկներ</h2>
+    <p class="lede">Ձմեռային և միջսեզոնային մոդելներ։</p>
+    <div class="grid">
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Ձմեռային գլխարկ</h3>
+          <p>Խիտ հյուսվածք՝ ականջները ծածկող։</p>
+          <ul class="specs"><li>Մերինո · Aran</li><li>Կեռ 5 մմ</li><li>Միջին</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="bazin-3">
+  <div class="wrap">
+    <p class="eyebrow">Բաժին</p>
+    <h2>Վերմակներ</h2>
+    <p class="lede">Քառակուսիներից հավաքվող և ամբողջական մոդելներ։</p>
+    <div class="grid">
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Գրանի քառակուսի վերմակ</h3>
+          <p>Դասական granny square՝ նոր գունային համադրությամբ։</p>
+          <ul class="specs"><li>Ակրիլ · Worsted</li><li>Կեռ 4 մմ</li><li>Սկսնակ</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="bazin-4">
+  <div class="wrap">
+    <p class="eyebrow">Բաժին</p>
+    <h2>Խաղալիքներ</h2>
+    <p class="lede">Ամիգուրումի՝ մանրամասն քայլերով։</p>
+    <div class="grid">
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Փոքրիկ արջուկ</h3>
+          <p>Բարձրությունը՝ 18 սմ։</p>
+          <ul class="specs"><li>Բամբակ</li><li>Կեռ 2.5 մմ</li><li>Միջին</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="bazin-5">
+  <div class="wrap">
+    <p class="eyebrow">Բաժին</p>
+    <h2>Աքսեսուարներ</h2>
+    <p class="lede">Փոքր աշխատանքներ՝ մեկ-երկու երեկոյի համար։</p>
+    <div class="grid">
+      <article class="card">
+        <div class="photo">Նկարի տեղը</div>
+        <div class="body">
+          <h3>Ծաղկավոր բրոշ</h3>
+          <p>Երեք շերտ թերթիկներով։</p>
+          <ul class="specs"><li>Բամբակ</li><li>Կեռ 2 մմ</li><li>Սկսնակ</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ԽՄԲԱԳՐԻՐ (6) — Իմ մասին ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="portrait">
+      <!-- <img src="images/portret.jpg" alt="Սիրարփի Մեհրաբյան"> -->
+      Լուսանկարի տեղը
+    </div>
+    <div>
+      <p class="eyebrow">Իմ մասին</p>
+      <h2>Սիրարփի Մեհրաբյան</h2>
+      <p>Կրոշեով զբաղվում եմ տարիներ շարունակ։ Սկսել եմ որպես հոբբի, հիմա նախագծում եմ սեփական մոդելներ և գրում մանրամասն սխեմաներ, որ ուրիշներն էլ կարողանան կրկնել դրանք։</p>
+      <p>Ապրում և աշխատում եմ Երևանում։ Սխեմաների մեծ մասը գրում եմ և՛ հայերեն, և՛ անգլերեն։</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ԽՄԲԱԳՐԻՐ (7) — Կապ ============
+     ա) value="ՔՈ_ԲԱՆԱԼԻՆ" → Web3Forms-ի access key
+     բ) սոցցանցերի հղումները -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Կապ</p>
+      <h2>Գրիր ինձ</h2>
+      <p class="lede">Հարցեր սխեմաների մասին, համագործակցության առաջարկ կամ պարզապես բարև։</p>
+
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="ՔՈ_ԲԱՆԱԼԻՆ">
+        <input type="hidden" name="subject" value="Նոր նամակ կայքից">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <label for="name">Անուն</label>
+        <input id="name" type="text" name="name" required>
+
+        <label for="email">Էլ. հասցե</label>
+        <input id="email" type="email" name="email" required>
+
+        <label for="message">Նամակ</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Ուղարկել</button>
+      </form>
+    </div>
+
+    <div>
+      <p class="eyebrow">Սոցցանցեր</p>
+      <ul class="socials">
+        <li><a href="https://instagram.com/ՔՈ_ԷՋԸ" target="_blank" rel="noopener">
+          <span>Instagram</span><span>@ՔՈ_ԷՋԸ</span></a></li>
+        <li><a href="https://facebook.com/ՔՈ_ԷՋԸ" target="_blank" rel="noopener">
+          <span>Facebook</span><span>Crochet and Patterns</span></a></li>
+        <li><a href="mailto:qo@email.com">
+          <span>Էլ. փոստ</span><span>qo@email.com</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© <span id="year">2026</span> Sirarpi Mehrabyan</div></footer>
+
+<script>
+/* Գունային կոճակների աշխատանքը՝ սեղմելիս բացվում է համապատասխան բաժինը */
+document.querySelectorAll('.bar').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var id = btn.dataset.target;
+    var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    document.querySelectorAll('.collection').forEach(function(s){ s.classList.remove('open'); });
+    document.querySelectorAll('.bar').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+
+    if(!isOpen){
+      btn.setAttribute('aria-expanded','true');
+      var section = document.getElementById(id);
+      section.classList.add('open');
+      section.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
